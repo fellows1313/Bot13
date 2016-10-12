@@ -1,1 +1,1 @@
-web: python gamesInfo.py
+web: python bot13.py
