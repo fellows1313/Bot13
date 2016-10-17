@@ -50,12 +50,12 @@ def generateResult(req):
     result = req.get("result")
     parameters = result.get("parameters")
 
-    # Find the matching type in our array of rentOptions
     speechResponse = "Sorry something went wrong! Try again."
     textResponse = "Sorry something went wrong! Try again."
 
     for rentOption in rentOptions:
         rentType = rentOption.rentType
+
         # Match the corresponding rentType with the corresponding parameter value
         if (rentType == parameters.get(rentType)):
             speechResponse = rentOption.rentDescription
