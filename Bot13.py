@@ -15,15 +15,14 @@ app = Flask(__name__)
 rentOptions = []
 
 class RentOptions:
-    def __init__(self, rentType, rentDescription, rentAmount):
+    def __init__(self, rentType, rentDescription):
         self.rentType = rentType
         self.rentDescription = rentDescription
-        self.rentAmount = rentAmount
 
-rentOptions.append(RentOptions("DayPass", "Join us for a day!", "$10.00"))
-rentOptions.append(RentOptions("HotDesk", "Come and go as you please!", "$75.00/mo"))
-rentOptions.append(RentOptions("DedicatedDesk", "Your own desk to do with as you please!", "$300/mo"))
-rentOptions.append(RentOptions("OfficeSpace", "Need a home for your startup?", "$500/mo"))
+rentOptions.append(RentOptions("DayPass", "Join us for a day for only $10.00!"))
+rentOptions.append(RentOptions("HotDesk", "Come and go as you please for $75.00 a month"))
+rentOptions.append(RentOptions("DedicatedDesk", "Your own personal desk available anytime for $300.00 a month"))
+rentOptions.append(RentOptions("OfficeSpace", "Need a home for your startup? Office space starting as low as $500.00 a month"))
 
 
 @app.route('/webhook', methods=['POST'])
@@ -55,8 +54,8 @@ def generateResult(req):
     # Find the matching type in our array of rentOptions
     for rentOption in rentOptions:
         if (rentOption.rentType == rentType):
-            speechResponse = rentOption.rentType + " " + rentOption.rentDescription + " " + rentOption.rentAmount
-            textResponse = rentOption.rentType + " - " + rentOption.rentDescription + " - " + rentOption.rentAmount
+            speechResponse = rentOption.rentType + " " + rentOption.rentDescription
+            textResponse = rentOption.rentType + " - " + rentOption.rentDescription
             break
 
 
