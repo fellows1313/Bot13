@@ -49,7 +49,7 @@ def processRequest(req):
 def generateResult(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    rentType = parameters.get("RentOptions") # This would be your value DayPass, HotDesk, etc.
+    rentType = parameters.get("DayPass") # This would be your value DayPass, HotDesk, etc.
 
     # Find the matching type in our array of rentOptions
     speechResponse = "Issue finding info about " + rentType
