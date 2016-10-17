@@ -52,6 +52,8 @@ def generateResult(req):
     rentType = parameters.get("RentOptions") # This would be your value DayPass, HotDesk, etc.
 
     # Find the matching type in our array of rentOptions
+    speechResponse = "Issue finding info about " + rentType
+    textResponse = "Issue finding info about " + rentType
     for rentOption in rentOptions:
         if (rentOption.rentType == rentType):
             speechResponse = rentOption.rentType + " " + rentOption.rentDescription
